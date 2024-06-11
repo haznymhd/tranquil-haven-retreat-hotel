@@ -3,6 +3,7 @@ import { getAllRooms } from "../utils/ApiFunctions"
 import { Link } from "react-router-dom"
 import { Card, Carousel, Col, Container, Row } from "react-bootstrap"
 import FoodMenu4 from "../room/FoodMenu4"
+import FoodMenu from "../room/FoodMenu"
 
 const RoomCarousel = () => {
 	const [rooms, setRooms] = useState([{ id: "", roomType: "", roomPrice: "", photo: "" }])
@@ -41,7 +42,7 @@ const RoomCarousel = () => {
 					{[...Array(Math.ceil(rooms.length / 4))].map((_, index) => (
 						<Carousel.Item key={index}>
 							<Row>
-								{rooms.slice(index * 4, index * 4 + 4).map((room) => (
+								{rooms.map((room) => (
 									<Col key={room.id} className="mb-4" xs={12} md={6} lg={3}>
 										<Card>
 											<Link to={`/book-room/${room.id}`}>
@@ -75,7 +76,7 @@ const RoomCarousel = () => {
             </Link> <br />
 			<Container>
                 {/* Render FoodMenu component */}
-                <FoodMenu4 />
+                <FoodMenu />
             </Container>
 		</section>
 	)

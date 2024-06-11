@@ -21,7 +21,7 @@ const FoodMenu = () => {
             <br /> <br />
             <Container>
                 <Row>
-                    {foodMenu.map((food) => (
+                    {foodMenu.slice(0,4).map((food) => (
                         <Col key={food.id} className="mb-4" xs={12} md={6} lg={3}>
                             <Card>
                                 <Card.Img
